@@ -17,7 +17,7 @@
                     <li><a href="?action=articles_list">Historique des articles</a></li>
                     <li><a href="#">Article</a></li>
                     <li><a href="?action=register">Inscription</a></li>
-                    <li><a href="?action=connexion">Connexion</a></li>
+                    <li><a href="?action=connection">Connexion</a></li>
                 </ul>
             </nav>
         </header>

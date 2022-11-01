@@ -13,4 +13,9 @@ class WebsiteController
     {
         require('view/website/register.view.php');
     }
+
+    public function connection()
+    {
+        require('view/website/connection.view.php');
+    }
 }

@@ -2,7 +2,8 @@
 
 namespace Model;
 
-class Comments {
+class Comments
+{
     private ?int $id;
     private ?int $authorId;
     private ?int $postId;
@@ -20,7 +21,7 @@ class Comments {
 
     /**
      * Get the value of id
-     */ 
+     */
     public function getId()
     {
         return $this->id;
@@ -30,7 +31,7 @@ class Comments {
      * Set the value of id
      *
      * @return  self
-     */ 
+     */
     public function setId($id)
     {
         $this->id = $id;
@@ -40,7 +41,7 @@ class Comments {
 
     /**
      * Get the value of authorId
-     */ 
+     */
     public function getAuthorId()
     {
         return $this->authorId;
@@ -50,7 +51,7 @@ class Comments {
      * Set the value of authorId
      *
      * @return  self
-     */ 
+     */
     public function setAuthorId($authorId)
     {
         $this->authorId = $authorId;
@@ -60,7 +61,7 @@ class Comments {
 
     /**
      * Get the value of postId
-     */ 
+     */
     public function getPostId()
     {
         return $this->postId;
@@ -70,7 +71,7 @@ class Comments {
      * Set the value of postId
      *
      * @return  self
-     */ 
+     */
     public function setPostId($postId)
     {
         $this->postId = $postId;
@@ -80,7 +81,7 @@ class Comments {
 
     /**
      * Get the value of content
-     */ 
+     */
     public function getContent()
     {
         return $this->content;
@@ -90,7 +91,7 @@ class Comments {
      * Set the value of content
      *
      * @return  self
-     */ 
+     */
     public function setContent($content)
     {
         $this->content = $content;
@@ -100,7 +101,7 @@ class Comments {
 
     /**
      * Get the value of publishDate
-     */ 
+     */
     public function getPublishDate()
     {
         return $this->publishDate;
@@ -110,7 +111,7 @@ class Comments {
      * Set the value of publishDate
      *
      * @return  self
-     */ 
+     */
     public function setPublishDate($publishDate)
     {
         $this->publishDate = $publishDate;

@@ -25,6 +25,9 @@ class Router
             case "register":
                 $this->websiteController->register();
                 break;
+            case "connection":
+                $this->websiteController->connection();
+                break;
             default:
                 $this->websiteController->home();
                 break;
