@@ -2,6 +2,29 @@
 
 namespace Model;
 
-class Model {
+use PDO, PDOException;
 
+class Model
+{
+    private static $pdo;
+
+    private static function setBdd()
+    {
+        try {
+            self::$pdo = new PDO('mysql:host=localhost;dbname=;charset=utf8', 'root', '', array(
+                PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
+                PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8'
+            ));
+        } catch (PDOException $e) {
+            //$e->getMessage();
+            die('Problème de connexion à la base de données.');
+        }
+    }
+    protected function getBdd()
+    {
+        if (self::$pdo === null) {
+            self::setBdd();
+        }
+        return self::$pdo;
+    }
 }
