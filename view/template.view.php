@@ -14,7 +14,10 @@
             <nav>
                 <ul>
                     <li><a href="index.php">Accueil</a></li>
-                    <li><a href="#">Les articles</a></li>
+                    <li><a href="?action=articles_list">Historique des articles</a></li>
+                    <li><a href="#">Article</a></li>
+                    <li><a href="?action=register">Inscription</a></li>
+                    <li><a href="?action=connexion">Connexion</a></li>
                 </ul>
             </nav>
         </header>

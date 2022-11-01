@@ -4,11 +4,12 @@ namespace Router;
 
 use Controller\Website\WebsiteController;
 
-class Router {
-
+class Router
+{
     private $websiteController;
 
-    public function __construct() {
+    public function __construct()
+    {
         $this->websiteController = new WebsiteController;
     }
 
@@ -21,6 +22,9 @@ class Router {
     {
         $action = $_GET['action'] ?? '';
         switch ($action) {
+            case "register":
+                $this->websiteController->register();
+                break;
             default:
                 $this->websiteController->home();
                 break;
