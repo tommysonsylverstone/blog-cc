@@ -2,8 +2,8 @@
 
 <form action="" method="POST">
     <ul>
-        <li><label for="username">Pseudonyme* :</label><input type="text" id="username" name="username" /></li>
-        <li><label for="password">Mot de passe* :</label><input type="text" id="password" name="password" /></li>
+        <li><label for="username">Pseudonyme* :</label><input type="text" id="username" name="username" required/></li>
+        <li><label for="password">Mot de passe* :</label><input type="password" id="password" name="password" required/></li>
         <li><button type="submit">Connexion</button></li>
     </ul>
 </form>
