@@ -16,4 +16,3 @@
 <?php $content = ob_get_clean();
 $title = "Accueil";
 require_once('view/template.view.php');
-?>

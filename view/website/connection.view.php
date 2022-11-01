@@ -11,4 +11,3 @@
 <?php $content = ob_get_clean();
 $title = "Connexion";
 require_once('view/template.view.php');
-?>

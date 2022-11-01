@@ -14,4 +14,3 @@
 <?php $content = ob_get_clean();
 $title = "Inscription";
 require_once('view/template.view.php');
-?>
