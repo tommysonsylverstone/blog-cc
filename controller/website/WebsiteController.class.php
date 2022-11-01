@@ -21,11 +21,13 @@ class WebsiteController
     public function register()
     {
         if (!empty($_POST)) {
+            $errors = [];
+            $registrationComplete = "";
+            $registrationError = "";
             foreach ($_POST as $key => $value) {
                 $_POST[$key] = htmlspecialchars(trim($value));
             }
             extract($_POST);
-            $errors = [];
             if (!preg_match('/^\w{0,}$/', $username)) {
                 $errors[] = "Le pseudonyme ne peut que contenir que des lettres, chiffres et underscore ( _ ).";
             }
@@ -45,7 +47,7 @@ class WebsiteController
                 $errors[] = "Le nom doit faire entre 3 et 30 caractères.";
             }
             if ($password !== $confirmpwd) {
-                $errors[] = "Le mot de passe entré et le mot de passe confirmation ne correspondent pas.";
+                $errors[] = "Le mot de passe entré et le mot de passe de confirmation ne correspondent pas.";
             }
             if (!preg_match('/^[\w@^#-]{0,}$/', $password)) {
                 $errors[] = "Le mot de passe ne peut que contenir que des lettres, chiffres et les caractères spéciaux suivants : @ ^ # - _.";
@@ -55,14 +57,16 @@ class WebsiteController
             }
 
             if (empty($errors)) {
-                var_dump("All clear");
+                $usernameExists = $this->usersManager->usernameExists($username);
+                if (!$usernameExists) {
+                    $password = password_hash($password, PASSWORD_DEFAULT);
+                    $user = new Users(null, $username, $firstname, $lastname, 'classic', $password);
+                    $this->usersManager->register($user);
+                    $registrationComplete = "Votre inscription est terminée. Pour vous connecter, allez sur la <a href='?action=connection'>page de connexion</a>.";
+                } else {
+                    $registrationError = "Le pseudo choisi existe déjà dans la base de données";
+                }
             }
-
-            var_dump($_POST, $errors);
-
-            die;
-            $user = new Users(null, $username, $firstname, $lastname, 'classic', $password);
-            $register = $this->usersManager->register($user);
         }
         require('view/website/register.view.php');
     }
