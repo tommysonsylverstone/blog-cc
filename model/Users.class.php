@@ -2,7 +2,7 @@
 
 namespace Model;
 
-class Users extends Model {
+class Users {
     private ?int $id;
     private ?string $username;
     private ?string $firstname;
