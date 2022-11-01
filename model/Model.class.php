@@ -4,7 +4,7 @@ namespace Model;
 
 use PDO, PDOException;
 
-class Model
+abstract class Model
 {
     private static $pdo;
 
