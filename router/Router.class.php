@@ -37,7 +37,6 @@ class Router
                 $this->websiteController->profile();
                 break;
             case "admin":
-                session_start();
                 if ($_SESSION['status'] !== "editor") {
                     header('location: index.php');
                 } else {
