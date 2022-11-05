@@ -85,7 +85,10 @@ class WebsiteController
                     $errors[] = "Ce pseudonyme n'existe pas en base de donnée.";
                     break;
                 default:
-                    echo "OK";
+                    session_start();
+                    foreach($connection as $key => $value) {
+                        $_SESSION[$key] = $value;
+                    }
                     break;
             }
         }

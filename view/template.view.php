@@ -1,3 +1,4 @@
+<?php session_start(); ?>
 <!DOCTYPE html>
 <html lang="fr">
 
@@ -17,9 +18,14 @@
                     <li><a href="?action=articles_list">Historique des articles</a></li>
                     <li><a href="#">Article</a></li>
                     <li><a href="?action=register">Inscription</a></li>
-                    <li><a href="?action=connection">Connexion</a></li>
+                    <?php if (empty($_SESSION)) : ?>
+                        <li><a href="?action=connection">Connexion</a></li>
+                    <?php else : ?>
+                        <li><a href="?action=disconnect">Déconnexion</a></li>
+                    <?php endif ?>
                 </ul>
             </nav>
+            <?php var_dump($_SESSION); ?>
         </header>
         <main>
             <h1><?= $title ?></h1>
