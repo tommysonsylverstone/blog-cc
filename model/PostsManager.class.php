@@ -8,9 +8,9 @@ class PostsManager extends Model
      * add
      *
      * @param  Posts $post
-     * @return void
+     * @return ?bool
      */
-    public function add(Posts $post)
+    public function add(Posts $post): ?bool
     {
         $id = $post->getId();
         $title = $post->getTitle();
@@ -22,7 +22,7 @@ class PostsManager extends Model
         $sql = "INSERT INTO posts (post_id, title, content, author, publish_date, likes) VALUES(:post_id, :title, :content, :author, :publish_date, :likes)";
         $req = Model::getBdd()->prepare($sql);
         return $req->execute([
-            ":id" => $id,
+            ":post_id" => $id,
             ":title" => $title,
             ":content" => $content,
             ":author" => $author,

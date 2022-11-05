@@ -8,15 +8,17 @@ class Posts
     private ?string $title;
     private ?string $content;
     private ?int $author;
+    private ?bool $published;
     private ?string $publishDate;
     private ?int $likes;
 
-    public function __construct($id, $title, $content, $author, $publishDate, $likes)
+    public function __construct($id, $title, $content, $author, $published, $publishDate, $likes)
     {
         $this->setId($id);
         $this->setTitle($title);
         $this->setContent($content);
         $this->setAuthor($author);
+        $this->setPublished($published);
         $this->setPublishDate($publishDate);
         $this->setLikes($likes);
     }
@@ -96,6 +98,26 @@ class Posts
     public function setAuthor($author)
     {
         $this->author = $author;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of published
+     */
+    public function getPublished()
+    {
+        return $this->published;
+    }
+
+    /**
+     * Set the value of published
+     *
+     * @return  self
+     */
+    public function setPublished($published)
+    {
+        $this->published = $published;
 
         return $this;
     }

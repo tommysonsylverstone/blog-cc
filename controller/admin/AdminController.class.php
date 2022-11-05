@@ -24,11 +24,15 @@ class AdminController
 
     public function articleAdd()
     {
+        $status = "";
         if (!empty($_POST)) {
             extract($_POST);
             $date = new DateTimeImmutable();
             $post = new Posts(null, $title, $content, $author, $date->format('Y-m-d H:i:s'), 0);
-            $this->pManager->add($post);
+            $posting = $this->pManager->add($post);
+            if ($posting) {
+                $status = "Votre billet a été enregistré";
+            }
         }
         require('view/admin/articles/add.view.php');
     }
