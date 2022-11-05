@@ -34,17 +34,21 @@ class WebsiteController
             if (strlen($username) > 30 || strlen($username) < 3) {
                 $errors[] = "Le pseudonyme doit faire entre 3 et 30 caractères.";
             }
-            if (!preg_match('/^[a-zA-Z]{0,}$/', $firstname)) {
-                $errors[] = "Le prénom ne peut que contenir des lettres.";
+            if (!empty($firstname)) {
+                if (!preg_match('/^[a-zA-Z]{0,}$/', $firstname)) {
+                    $errors[] = "Le prénom ne peut que contenir des lettres.";
+                }
+                if (strlen($firstname) > 30 || strlen($firstname) < 3) {
+                    $errors[] = "Le prénom doit faire entre 3 et 30 caractères.";
+                }
             }
-            if (strlen($firstname) > 30 || strlen($firstname) < 3) {
-                $errors[] = "Le prénom doit faire entre 3 et 30 caractères.";
-            }
-            if (!preg_match('/^[a-zA-Z]{0,}$/', $lastname)) {
-                $errors[] = "Le nom ne peut que contenir des lettres.";
-            }
-            if (strlen($lastname) > 30 || strlen($lastname) < 3) {
-                $errors[] = "Le nom doit faire entre 3 et 30 caractères.";
+            if (!empty($lastname)) {
+                if (!preg_match('/^[a-zA-Z]{0,}$/', $lastname)) {
+                    $errors[] = "Le nom ne peut que contenir des lettres.";
+                }
+                if (strlen($lastname) > 30 || strlen($lastname) < 3) {
+                    $errors[] = "Le nom doit faire entre 3 et 30 caractères.";
+                }
             }
             if ($password !== $confirmpwd) {
                 $errors[] = "Le mot de passe entré et le mot de passe de confirmation ne correspondent pas.";
