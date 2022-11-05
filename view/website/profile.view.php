@@ -1,5 +1,4 @@
-<?php if (!isset($_SESSION)) session_start();
-ob_start(); ?>
+<?php ob_start(); ?>
 
 <?php if (!empty($_SESSION)) : ?>
 
