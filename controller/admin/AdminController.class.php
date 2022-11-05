@@ -4,6 +4,11 @@ namespace Controller\Admin;
 
 class AdminController {
     public function backoffice() {
-        require('view/admin/backoffice.view.php');
+        session_start();
+        if ($_SESSION['status'] !== "editor") {
+            header('location: index.php');
+        } else {
+            require('view/admin/backoffice.view.php');
+        }
     }
 }
