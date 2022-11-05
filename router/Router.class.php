@@ -28,6 +28,9 @@ class Router
             case "connection":
                 $this->websiteController->connection();
                 break;
+            case "disconnect":
+                $this->websiteController->disconnect();
+                break;
             default:
                 $this->websiteController->home();
                 break;

@@ -94,4 +94,10 @@ class WebsiteController
         }
         require('view/website/connection.view.php');
     }
+
+    public function disconnect()
+    {
+        require('view/website/disconnect.view.php');
+        header('location: index.php');
+    }
 }
