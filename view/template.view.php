@@ -17,7 +17,11 @@
                     <li><a href="index.php">Accueil</a></li>
                     <li><a href="?action=articles_list">Historique des articles</a></li>
                     <li><a href="#">Article</a></li>
-                    <li><a href="?action=register">Inscription</a></li>
+                    <?php if (empty($_SESSION)) : ?>
+                        <li><a href="?action=register">Inscription</a></li>
+                    <?php else : ?>
+                        <li><a href="?action=profile">Profil</a></li>
+                    <?php endif ?>
                     <?php if (empty($_SESSION)) : ?>
                         <li><a href="?action=connection">Connexion</a></li>
                     <?php else : ?>
