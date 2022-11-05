@@ -15,6 +15,9 @@
             <nav>
                 <ul>
                     <li><a href="index.php">Accueil</a></li>
+                    <?php if (!empty($_SESSION) && $_SESSION['status'] === "editor") : ?>
+                        <li><a href="?action=admin">Accès au back office</a></li>
+                    <?php endif ?>
                     <li><a href="?action=articles_list">Historique des articles</a></li>
                     <li><a href="#">Article</a></li>
                     <?php if (empty($_SESSION)) : ?>
