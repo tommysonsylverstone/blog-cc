@@ -4,6 +4,7 @@ namespace Router;
 
 use Controller\Website\WebsiteController;
 use Controller\Admin\AdminController;
+
 class Router
 {
     private $websiteController;
@@ -36,7 +37,23 @@ class Router
                 $this->websiteController->profile();
                 break;
             case "admin":
-                $this->adminController->backoffice();
+                session_start();
+                if ($_SESSION['status'] !== "editor") {
+                    header('location: index.php');
+                } else {
+                    $p = $_GET['p'] ?? '';
+                    switch ($p) {
+                        case "list":
+                            $this->adminController->articleList();
+                            break;
+                        case "add":
+                            $this->adminController->articleAdd();
+                            break;
+                        default:
+                            $this->adminController->backoffice();
+                            break;
+                    }
+                }
                 break;
             default:
                 $this->websiteController->home();

@@ -1,5 +1,5 @@
-<?php ob_start(); ?>
-    
+<?php ob_start(); var_dump("zerzer") ?>
+  zerzeqr  
 <?php
 $content = ob_get_clean();
 $title = "Liste des articles";
