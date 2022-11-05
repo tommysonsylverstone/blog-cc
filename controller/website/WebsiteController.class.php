@@ -104,4 +104,8 @@ class WebsiteController
         require('view/website/disconnect.view.php');
         header('location: index.php');
     }
+
+    public function profile() {
+        require('view/website/profile.view.php');
+    }
 }

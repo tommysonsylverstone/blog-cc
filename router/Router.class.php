@@ -31,6 +31,9 @@ class Router
             case "disconnect":
                 $this->websiteController->disconnect();
                 break;
+            case "profile":
+                $this->websiteController->profile();
+                break;
             default:
                 $this->websiteController->home();
                 break;

@@ -29,6 +29,7 @@
                     <?php endif ?>
                 </ul>
             </nav>
+            <?php var_dump($_SESSION) ?>
         </header>
         <main>
             <h1><?= $title ?></h1>
