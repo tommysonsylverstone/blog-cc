@@ -90,9 +90,10 @@ class WebsiteController
                     break;
                 default:
                     session_start();
-                    foreach($connection as $key => $value) {
+                    foreach ($connection as $key => $value) {
                         $_SESSION[$key] = $value;
                     }
+                    header('location: index.php');
                     break;
             }
         }
@@ -103,5 +104,16 @@ class WebsiteController
     {
         require('view/website/disconnect.view.php');
         header('location: index.php');
+    }
+
+    public function profile()
+    {
+        session_start();
+        if (!empty($_SESSION)) 
+        {
+            require('view/website/profile.view.php');
+        } else {
+            header('location: index.php');
+        }
     }
 }
