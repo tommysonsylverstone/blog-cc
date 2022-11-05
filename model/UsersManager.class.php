@@ -41,4 +41,8 @@ class UsersManager extends Model
         }
         return false;
     }
+
+    public function connection(string $username, string $password) {
+        
+    }
 }
