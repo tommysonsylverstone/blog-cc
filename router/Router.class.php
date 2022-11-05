@@ -3,7 +3,7 @@
 namespace Router;
 
 use Controller\Website\WebsiteController;
-
+use Controller\Admin\AdminController;
 class Router
 {
     private $websiteController;
@@ -11,6 +11,7 @@ class Router
     public function __construct()
     {
         $this->websiteController = new WebsiteController;
+        $this->adminController = new AdminController;
     }
 
     /**
@@ -33,6 +34,9 @@ class Router
                 break;
             case "profile":
                 $this->websiteController->profile();
+                break;
+            case "admin":
+                $this->adminController->backoffice();
                 break;
             default:
                 $this->websiteController->home();
