@@ -45,15 +45,24 @@ class UsersManager extends Model
         return false;
     }
 
-    public function connection(string $username, string $password): ?array
+    public function connection(string $username, string $password): mixed
     {
         $sql = "SELECT * FROM users WHERE username = :username";
         $req = Model::getBdd()->prepare($sql);
         $req->execute([":username" => $username]);
-        $result = $req->fetch(PDO::FETCH_ASSOC);
-        if (password_verify($password, $result['password'])) {
-            return $result;
+        // if there is a username that matches
+        if ($req->rowCount() > 0) {
+            // get all data from row
+            $result = $req->fetch(PDO::FETCH_ASSOC);
+            // if password matches
+            if (password_verify($password, $result['password'])) {
+                // return all user data
+                return $result;
+            }
+            // else return 1
+            return 1;
         }
-        return null;
+        // else return 2
+        return 2;
     }
 }

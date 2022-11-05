@@ -75,8 +75,19 @@ class WebsiteController
     {
         if (!empty($_POST)) {
             extract($_POST);
+            $errors = [];
             $connection = $this->usersManager->connection($username, $password);
-            var_dump($connection);
+            switch ($connection) {
+                case 1:
+                    $errors[] = "Mauvais mot de passe.";
+                    break;
+                case 2:
+                    $errors[] = "Ce pseudonyme n'existe pas en base de donnée.";
+                    break;
+                default:
+                    echo "OK";
+                    break;
+            }
         }
         require('view/website/connection.view.php');
     }

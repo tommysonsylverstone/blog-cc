@@ -1,4 +1,5 @@
 <?php ob_start(); ?>
+<?php include_once('view/website/inc/error.view.php'); ?>
 
 <form action="" method="POST">
     <ul>

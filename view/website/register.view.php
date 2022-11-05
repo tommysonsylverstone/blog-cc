@@ -6,9 +6,7 @@
 <?php if (!empty($registrationError)) : ?>
     <div class="error"><?= $registrationError ?></div>
 <?php endif ?>
-<?php if (!empty($errors)) : ?>
-    <div class="error"><?= implode(", ", $errors) ?></div>
-<?php endif ?>
+<?php include_once('view/website/inc/error.view.php'); ?>
 <form action="" method="POST">
     <ul>
         <li><label for="username">Pseudonyme* :</label><input type="text" id="username" name="username" required value="<?= $_POST['username'] ?? '' ?>" /></li>
