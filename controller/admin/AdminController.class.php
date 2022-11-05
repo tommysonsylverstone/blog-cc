@@ -28,10 +28,12 @@ class AdminController
         if (!empty($_POST)) {
             extract($_POST);
             $date = new DateTimeImmutable();
-            $post = new Posts(null, $title, $content, $author, $date->format('Y-m-d H:i:s'), 0);
+            $post = new Posts(null, $title, $content, $author, $published, $date->format('Y-m-d H:i:s'), 0);
             $posting = $this->pManager->add($post);
             if ($posting) {
-                $status = "Votre billet a été enregistré";
+                $status = "Votre billet a été enregistré.";
+            } else {
+                $status = "Une erreur est survenue.";
             }
         }
         require('view/admin/articles/add.view.php');
