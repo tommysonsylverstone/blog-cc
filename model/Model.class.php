@@ -20,7 +20,7 @@ abstract class Model
             die('Problème de connexion à la base de données.');
         }
     }
-    protected function getBdd()
+    protected static function getBdd()
     {
         if (self::$pdo === null) {
             self::setBdd();
