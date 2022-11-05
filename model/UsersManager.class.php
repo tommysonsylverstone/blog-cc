@@ -47,12 +47,13 @@ class UsersManager extends Model
 
     public function connection(string $username, string $password): ?array
     {
-        $sql = "SELECT * FROM users WHERE username = :username AND password = :password";
+        $sql = "SELECT * FROM users WHERE username = :username";
         $req = Model::getBdd()->prepare($sql);
-        $req->execute([":username" => $username, ":password" => $password]);
-        if ($req->rowCount() > 0) {
-            return $req->fetch(PDO::FETCH_ASSOC);
+        $req->execute([":username" => $username]);
+        $result = $req->fetch(PDO::FETCH_ASSOC);
+        if (password_verify($password, $result['password'])) {
+            return $result;
         }
-        return false;
+        return null;
     }
 }

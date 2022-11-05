@@ -73,7 +73,11 @@ class WebsiteController
 
     public function connection()
     {
-        
+        if (!empty($_POST)) {
+            extract($_POST);
+            $connection = $this->usersManager->connection($username, $password);
+            var_dump($connection);
+        }
         require('view/website/connection.view.php');
     }
 }
