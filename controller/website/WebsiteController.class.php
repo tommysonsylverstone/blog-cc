@@ -73,6 +73,7 @@ class WebsiteController
 
     public function connection()
     {
+        
         require('view/website/connection.view.php');
     }
 }

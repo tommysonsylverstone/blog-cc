@@ -34,7 +34,8 @@ class UsersManager extends Model
 
     public function usernameExists(string $username): bool
     {
-        $req = Model::getBdd()->prepare("SELECT username FROM users WHERE username = :username");
+        $sql = "SELECT username FROM users WHERE username = :username";
+        $req = Model::getBdd()->prepare($sql);
         $req->execute([':username' => $username]);
         if ($req->rowCount() > 0) {
             return true;
@@ -43,6 +44,6 @@ class UsersManager extends Model
     }
 
     public function connection(string $username, string $password) {
-        
+
     }
 }
