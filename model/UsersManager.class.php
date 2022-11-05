@@ -2,6 +2,8 @@
 
 namespace Model;
 
+use PDO;
+
 class UsersManager extends Model
 {
     /**
@@ -43,7 +45,14 @@ class UsersManager extends Model
         return false;
     }
 
-    public function connection(string $username, string $password) {
-
+    public function connection(string $username, string $password): ?array
+    {
+        $sql = "SELECT * FROM users WHERE username = :username AND password = :password";
+        $req = Model::getBdd()->prepare($sql);
+        $req->execute([":username" => $username, ":password" => $password]);
+        if ($req->rowCount() > 0) {
+            return $req->fetch(PDO::FETCH_ASSOC);
+        }
+        return false;
     }
 }
